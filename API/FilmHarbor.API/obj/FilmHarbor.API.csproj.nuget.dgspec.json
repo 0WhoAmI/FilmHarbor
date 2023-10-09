@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.csproj": {}
+    "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.API\\FilmHarbor.API.csproj": {}
   },
   "projects": {
-    "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.csproj": {
+    "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.API\\FilmHarbor.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.csproj",
-        "projectName": "FilmHarbor",
-        "projectPath": "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.csproj",
+        "projectUniqueName": "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.API\\FilmHarbor.API.csproj",
+        "projectName": "FilmHarbor.API",
+        "projectPath": "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.API\\FilmHarbor.API.csproj",
         "packagesPath": "C:\\Users\\bartlomiej.krzysztof\\.nuget\\packages\\",
-        "outputPath": "D:\\_Studia\\zpai\\FilmHarbor\\API\\obj\\",
+        "outputPath": "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"

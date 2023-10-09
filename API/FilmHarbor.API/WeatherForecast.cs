@@ -1,4 +1,4 @@
-namespace FilmHarbor
+namespace FilmHarbor.API
 {
     public class WeatherForecast
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmHarbor", "FilmHarbor.csproj", "{AB7BAF8C-7DEC-4027-A67E-C7F2A2CC3286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmHarbor.API", "FilmHarbor.API.csproj", "{D100B628-410D-4667-AAA8-9A4EDB95C631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB7BAF8C-7DEC-4027-A67E-C7F2A2CC3286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB7BAF8C-7DEC-4027-A67E-C7F2A2CC3286}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB7BAF8C-7DEC-4027-A67E-C7F2A2CC3286}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB7BAF8C-7DEC-4027-A67E-C7F2A2CC3286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D100B628-410D-4667-AAA8-9A4EDB95C631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D100B628-410D-4667-AAA8-9A4EDB95C631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D100B628-410D-4667-AAA8-9A4EDB95C631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D100B628-410D-4667-AAA8-9A4EDB95C631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3ACDD12A-55CA-4F2A-93EB-191119E03DF0}
+		SolutionGuid = {4A3F3720-2C4B-4BAE-9F30-3B030B2AB76E}
 	EndGlobalSection
 EndGlobal
