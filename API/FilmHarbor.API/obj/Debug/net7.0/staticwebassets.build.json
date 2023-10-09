@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rhiU9dmqLJ2FW81KnQjZo1c7N5g1z5MvalytIx0sleM=",
+  "Source": "FilmHarbor.API",
+  "BasePath": "_content/FilmHarbor.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
