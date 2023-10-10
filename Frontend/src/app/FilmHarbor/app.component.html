@@ -1,5 +1,7 @@
 Hi there!
 <button (click)="showText()">TEST</button>
-<div *ngFor="let item of list">
-    {{item.summary}}
-</div>
+<ul>
+  <div *ngFor="let item of list">
+    <li>{{ item | json }}</li>
+  </div>
+</ul>
