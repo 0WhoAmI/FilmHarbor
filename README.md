@@ -7,7 +7,7 @@ FilmHarbor is a web application that allows users to create and manage their per
 - Add movies to your catalog.
 - Organize movies into categories or lists.
 - Rate and review movies.
-- Share your catalog with friends.
+- Film draw.
 - Discover new movies based on user recommendations.
 - User-friendly and responsive design for a seamless experience on any device.
 
