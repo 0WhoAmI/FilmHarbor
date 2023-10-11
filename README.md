@@ -1,6 +1,6 @@
 # FilmHarbor
 
-FilmHarbor is a web application that allows users to create and manage their personal movie catalog. It provides a convenient way to keep track of your favorite movies and share them with others.
+FilmHarbor is a web application that allows users to create and manage their personal movie catalog. It provides a convenient way to keep track of your favorite movies and helps those who are undecided to choose a movie
 
 ## Features
 
@@ -22,6 +22,7 @@ To run FilmHarbor locally, you need the following software installed:
 - Node.js and npm (Node Package Manager)
 - Angular CLI
 - Git
+- .Net 7
 
 ### Installation
 
@@ -52,4 +53,3 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 Acknowledgments
 Special thanks to the open-source community and the Angular framework for making this project possible.
-Note: This README is a template and should be customized to fit your specific project's details and requirements.
