@@ -1,7 +1,7 @@
 # Ignoruj pliki tymczasowe i katalogi
-**/obj/
-**/bin/
-**/.vs/
+**/obj/**
+**/bin/**
+**/.vs/**
 
 # Ignoruj pliki wygenerowane przez Visual Studio
 .vscode/
