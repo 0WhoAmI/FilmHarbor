@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pLrxb4gAt+KopTZlXU3Du2hkyUZOg3yi5smlZ4W7+7PtFeZpsWYZlO0XojX98YLpgHLF+TMRAXG7ED/41CWtow==",
+  "dgSpecHash": "rz9sUhxuBIV6/30lLdeOsX2b2BcN1pbkAh4TrdmaYHa65wSbLw7JA7XU/WL4oCapJMCTi5MTgvI431pdHqiL/w==",
   "success": true,
-  "projectFilePath": "D:\\_Studia\\zpai\\FilmHarbor\\API\\FilmHarbor.API\\FilmHarbor.API.csproj",
+  "projectFilePath": "D:\\_Studia\\Zaawansowane programowanie aplikacji internetowych\\FilmHarbor\\API\\FilmHarbor.API\\FilmHarbor.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bartlomiej.krzysztof\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
     "C:\\Users\\bartlomiej.krzysztof\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

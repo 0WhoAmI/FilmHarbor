@@ -31,3 +31,36 @@ D:\_Studia\zpai\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\refint\FilmHarbor
 D:\_Studia\zpai\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.pdb
 D:\_Studia\zpai\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.genruntimeconfig.cache
 D:\_Studia\zpai\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\ref\FilmHarbor.API.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\appsettings.Development.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\appsettings.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\FilmHarbor.API.exe
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\FilmHarbor.API.deps.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\FilmHarbor.API.runtimeconfig.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\FilmHarbor.API.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\FilmHarbor.API.pdb
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\Microsoft.OpenApi.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.csproj.AssemblyReference.cache
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.AssemblyInfoInputs.cache
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.AssemblyInfo.cs
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.csproj.CoreCompileInputs.cache
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.MvcApplicationPartsAssemblyInfo.cs
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.MvcApplicationPartsAssemblyInfo.cache
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets\msbuild.FilmHarbor.API.Microsoft.AspNetCore.StaticWebAssets.props
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets\msbuild.build.FilmHarbor.API.props
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.FilmHarbor.API.props
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.FilmHarbor.API.props
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets.pack.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets.build.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\staticwebassets.development.json
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\scopedcss\bundle\FilmHarbor.API.styles.css
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.csproj.CopyComplete
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\refint\FilmHarbor.API.dll
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.pdb
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\FilmHarbor.API.genruntimeconfig.cache
+D:\_Studia\Zaawansowane programowanie aplikacji internetowych\FilmHarbor\API\FilmHarbor.API\obj\Debug\net7.0\ref\FilmHarbor.API.dll

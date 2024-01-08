@@ -27,5 +27,27 @@ namespace FilmHarbor.API.Controllers
         {
             return Films;
         }
+
+        [HttpGet("film")]
+        public Film GetFilm(int id)
+        {
+            if (id == 0)
+                throw new Exception("Zły id.");
+
+            Film film = Films.FirstOrDefault(film => film.Id == id);
+
+            if (film == null)
+                throw new Exception("Nie ma filmu z takim id.");
+
+            return film;
+        }
+
+        [HttpPost("film/add")]
+        public IEnumerable<Film> AddFilm(string filmName)
+        {
+            Films.Add(new Film(6,filmName, 2022, "testPost", new List<string> { "Action", "Adventure" }));
+
+            return Films;
+        }
     }
 }
