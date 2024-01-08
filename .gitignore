@@ -1,3 +1,6 @@
+# Dodatkowe pliki
+createDatabase.txt
+
 # Ignoruj pliki tymczasowe i katalogi
 **/obj/**
 **/bin/**
