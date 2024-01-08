@@ -29,16 +29,16 @@ To run FilmHarbor locally, you need the following software installed:
 1. Clone the repository to your local machine:
 git clone https://github.com/0WhoAmI/FilmHarbor.git
 
-2.Navigate to the project directory:
+2. Navigate to the project directory:
 cd FilmHarbor
 
-3.Install the project dependencies:
+3. Install the project dependencies:
 npm install
 
-4.Start the development server:
+4. Start the development server:
 ng serve
 
-5.Open your web browser and go to http://localhost:4200 to access FilmHarbor.
+5. Open your web browser and go to http://localhost:4200 to access FilmHarbor.
 Usage
 
 Sign up for an account or log in if you already have one.
