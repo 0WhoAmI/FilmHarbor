@@ -1,5 +1,6 @@
 # Dodatkowe pliki
 createDatabase.txt
+appsettings.Local.json
 
 # Ignoruj pliki tymczasowe i katalogi
 **/obj/**
