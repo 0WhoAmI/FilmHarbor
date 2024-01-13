@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "Title": "Incepcja",
+    "ReleaseYear": 2010,
+    "CategoryId": 1,
+    "ImageUrl": "https://example.com/inception.jpg",
+    "Description": "Opis filmu Incepcja"
+  },
+  {
+    "Id": 2,
+    "Title": "Forest Gump",
+    "ReleaseYear": 1994,
+    "CategoryId": 2,
+    "ImageUrl": "https://example.com/forestgump.jpg",
+    "Description": "Opis filmu Forest Gump"
+  },
+  {
+    "Id": 3,
+    "Title": "Szklana Pułapka",
+    "ReleaseYear": 1988,
+    "CategoryId": 1,
+    "ImageUrl": "https://example.com/diehard.jpg",
+    "Description": "Opis filmu Szklana Pułapka"
+  },
+  {
+    "Id": 4,
+    "Title": "Matrix",
+    "ReleaseYear": 1999,
+    "CategoryId": 1,
+    "ImageUrl": "https://example.com/matrix.jpg",
+    "Description": "Opis filmu Matrix"
+  },
+  {
+    "Id": 5,
+    "Title": "Nietykalni",
+    "ReleaseYear": 2011,
+    "CategoryId": 3,
+    "ImageUrl": "https://example.com/intouchables.jpg",
+    "Description": "Opis filmu Nietykalni"
+  },
+  {
+    "Id": 6,
+    "Title": "Labirynt Fauna",
+    "ReleaseYear": 2006,
+    "CategoryId": 2,
+    "ImageUrl": "https://example.com/pan.jpg",
+    "Description": "Opis filmu Labirynt Fauna"
+  },
+  {
+    "Id": 7,
+    "Title": "Gladiator",
+    "ReleaseYear": 2000,
+    "CategoryId": 1,
+    "ImageUrl": "https://example.com/gladiator.jpg",
+    "Description": "Opis filmu Gladiator"
+  },
+  {
+    "Id": 8,
+    "Title": "Szeregowiec Ryan",
+    "ReleaseYear": 1998,
+    "CategoryId": 2,
+    "ImageUrl": "https://example.com/savingprivateryan.jpg",
+    "Description": "Opis filmu Szeregowiec Ryan"
+  },
+  {
+    "Id": 9,
+    "Title": "Forrest Gump",
+    "ReleaseYear": 1994,
+    "CategoryId": 2,
+    "ImageUrl": "https://example.com/forrestgump.jpg",
+    "Description": "Opis filmu Forrest Gump"
+  },
+  {
+    "Id": 10,
+    "Title": "Interstellar",
+    "ReleaseYear": 2014,
+    "CategoryId": 1,
+    "ImageUrl": "https://example.com/interstellar.jpg",
+    "Description": "Opis filmu Interstellar"
+  }
+]

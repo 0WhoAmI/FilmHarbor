@@ -4,13 +4,13 @@ namespace FilmHarbor.Core.Entities
 {
     public class Category
     {
-        [Key]
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string CategoryName { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
-        public ICollection<Movie> Movies { get; set; }
+        //Navigattion Properties
+        //public virtual ICollection<Movie>? Movies { get; set; }
     }
 }
