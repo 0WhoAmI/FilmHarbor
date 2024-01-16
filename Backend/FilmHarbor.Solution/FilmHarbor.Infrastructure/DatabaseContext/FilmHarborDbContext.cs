@@ -23,7 +23,7 @@ namespace FilmHarbor.Infrastructure.DatabaseContext
             modelBuilder.Entity<User>()
                 .HasMany(e => e.FavouriteMovies)
                 .WithMany(e => e.FavouriteByUsers)
-                .UsingEntity("FavoriteMovies");
+                .UsingEntity("FavouriteMovies");
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.FavouriteMovies)

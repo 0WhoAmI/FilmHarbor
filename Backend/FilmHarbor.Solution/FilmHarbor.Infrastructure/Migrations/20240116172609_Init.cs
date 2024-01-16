@@ -64,7 +64,7 @@ namespace FilmHarbor.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FavoriteMovies",
+                name: "FavouriteMovies",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false),
@@ -72,15 +72,15 @@ namespace FilmHarbor.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FavoriteMovies", x => new { x.UserId, x.MovieId });
+                    table.PrimaryKey("PK_FavouriteMovies", x => new { x.UserId, x.MovieId });
                     table.ForeignKey(
-                        name: "FK_FavoriteMovies_Movies_MovieId",
+                        name: "FK_FavouriteMovies_Movies_MovieId",
                         column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FavoriteMovies_Users_UserId",
+                        name: "FK_FavouriteMovies_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -150,8 +150,8 @@ namespace FilmHarbor.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FavoriteMovies_MovieId",
-                table: "FavoriteMovies",
+                name: "IX_FavouriteMovies_MovieId",
+                table: "FavouriteMovies",
                 column: "MovieId");
 
             migrationBuilder.CreateIndex(
@@ -174,7 +174,7 @@ namespace FilmHarbor.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "FavoriteMovies");
+                name: "FavouriteMovies");
 
             migrationBuilder.DropTable(
                 name: "Reviews");

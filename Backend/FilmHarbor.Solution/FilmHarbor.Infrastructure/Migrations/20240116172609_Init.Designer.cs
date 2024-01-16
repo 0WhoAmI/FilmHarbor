@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmHarbor.Infrastructure.Migrations
 {
     [DbContext(typeof(FilmHarborDbContext))]
-    [Migration("20240116171643_Init")]
+    [Migration("20240116172609_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace FilmHarbor.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FavoriteMovies", b =>
+            modelBuilder.Entity("FavouriteMovies", b =>
                 {
                     b.Property<int>("FavouriteByUsersId")
                         .HasColumnType("int")
@@ -39,7 +39,7 @@ namespace FilmHarbor.Infrastructure.Migrations
 
                     b.HasIndex("FavouriteMoviesId");
 
-                    b.ToTable("FavoriteMovies");
+                    b.ToTable("FavouriteMovies");
                 });
 
             modelBuilder.Entity("FilmHarbor.Core.Entities.Category", b =>
@@ -296,7 +296,7 @@ namespace FilmHarbor.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FavoriteMovies", b =>
+            modelBuilder.Entity("FavouriteMovies", b =>
                 {
                     b.HasOne("FilmHarbor.Core.Entities.User", null)
                         .WithMany()
