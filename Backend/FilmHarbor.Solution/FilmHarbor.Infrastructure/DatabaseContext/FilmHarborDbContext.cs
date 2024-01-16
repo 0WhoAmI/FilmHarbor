@@ -1,4 +1,5 @@
-﻿using FilmHarbor.Core.Entities;
+﻿using Azure;
+using FilmHarbor.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -10,15 +11,29 @@ namespace FilmHarbor.Infrastructure.DatabaseContext
         {
         }
 
-        public DbSet<Movie> Movies { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Movie>().ToTable("Movies");
-            modelBuilder.Entity<Category>().ToTable("Categories");
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.FavouriteMovies)
+                .WithMany(e => e.FavouriteByUsers)
+                .UsingEntity("FavoriteMovies");
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.FavouriteMovies)
+                .WithMany(e => e.FavouriteByUsers)
+                .UsingEntity(
+                    j =>
+                    {
+                        j.Property("FavouriteByUsersId").HasColumnName("UserId");
+                        j.Property("FavouriteMoviesId").HasColumnName("MovieId");
+                    });
 
             //Seed to Categories
             string categoriesJson = File.ReadAllText("../FilmHarbor.Infrastructure/Data/categories.json");

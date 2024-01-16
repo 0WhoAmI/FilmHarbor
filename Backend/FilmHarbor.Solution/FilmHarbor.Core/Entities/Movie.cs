@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FilmHarbor.Core.Entities
 {
@@ -6,9 +7,10 @@ namespace FilmHarbor.Core.Entities
     {
         public int Id { get; set; }
 
-        [Required]
         [StringLength(30)]
-        public string? Title { get; set; }
+        public string Title { get; set; } = null!;
+
+        public int CategoryId { get; set; }
 
         public int? ReleaseYear { get; set; }
 
@@ -20,11 +22,10 @@ namespace FilmHarbor.Core.Entities
 
 
         //Navigattion Properties
-        public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
-        //public virtual ICollection<FavoriteMovie> FavoriteMovies { get; set; }
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
 
-        //public virtual ICollection<Review> Reviews { get; set; }
+        public ICollection<User> FavouriteByUsers { get; set; } = new List<User>();
     }
 }
