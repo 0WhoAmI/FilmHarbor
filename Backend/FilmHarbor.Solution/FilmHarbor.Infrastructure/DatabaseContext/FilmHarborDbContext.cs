@@ -1,5 +1,4 @@
-﻿using Azure;
-using FilmHarbor.Core.Entities;
+﻿using FilmHarbor.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -9,6 +8,10 @@ namespace FilmHarbor.Infrastructure.DatabaseContext
     {
         public FilmHarborDbContext(DbContextOptions options) : base(options)
         {
+        }
+        public FilmHarborDbContext()
+        {
+
         }
 
         public DbSet<Category> Categories { get; set; }

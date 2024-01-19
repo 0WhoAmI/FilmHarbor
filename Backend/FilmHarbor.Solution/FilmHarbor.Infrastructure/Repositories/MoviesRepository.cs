@@ -28,5 +28,41 @@ namespace FilmHarbor.Infrastructure.Repositories
         {
             return await _dbContext.Movies.FirstOrDefaultAsync(movie => movie.Title == movieTitle);
         }
+
+        public async Task<Movie> AddMovie(Movie movie)
+        {
+            _dbContext.Movies.Add(movie);
+            await _dbContext.SaveChangesAsync();
+
+            return movie;
+        }
+
+        public async Task<bool> DeleteMovie(int movieId)
+        {
+            _dbContext.RemoveRange(_dbContext.Movies.Where(movie => movie.Id == movieId));
+            int rowsDeleted = await _dbContext.SaveChangesAsync();
+
+            return rowsDeleted > 0;
+        }
+
+        public async Task<Movie> UpdateMovie(Movie movie)
+        {
+            Movie? matchingMovie = await _dbContext.Movies.FirstOrDefaultAsync(m => m.Id == movie.Id);
+
+            if (matchingMovie == null)
+            {
+                return movie;
+            }
+
+            matchingMovie.Title = movie.Title;
+            matchingMovie.CategoryId = movie.CategoryId;
+            matchingMovie.ReleaseYear = movie.ReleaseYear;
+            matchingMovie.ImageUrl = movie.ImageUrl;
+            matchingMovie.Description = movie.Description;
+
+            int rowsUpdated = await _dbContext.SaveChangesAsync();
+
+            return matchingMovie;
+        }
     }
 }

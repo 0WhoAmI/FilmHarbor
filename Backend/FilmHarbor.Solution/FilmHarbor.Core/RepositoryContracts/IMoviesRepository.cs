@@ -27,10 +27,25 @@ namespace FilmHarbor.Core.RepositoryContracts
         /// <returns>Matching movie or null</returns>
         Task<Movie?> GetMovieByMovieTitle(string movieTitle);
 
-        //TODO: AddMovie()
+        /// <summary>
+        /// Adds a new movie object to the data store
+        /// </summary>
+        /// <param name="movie"> Movie object to add</param>
+        /// <returns>Returns the movie object after adding it to the data store</returns>
+        Task<Movie> AddMovie(Movie movie);
 
-        //TODO: DeleteMovie()
+        /// <summary>
+        /// Delete a movie from the data store based on movie id
+        /// </summary>
+        /// <param name="movieId"> Movie id to delete</param>
+        /// <returns>Returns true, if the deletion is successful; otherwise false</returns>
+        Task<bool> DeleteMovie(int movieId);
 
-        //TODO: UpdateMovie()
+        /// <summary>
+        /// Update a exiting movie object in the data store
+        /// </summary>
+        /// <param name="movie"> Movie object to update</param>
+        /// <returns>Returns the update movie object</returns>
+        Task<Movie> UpdateMovie(Movie movie);
     }
 }
