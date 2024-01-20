@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IFavouriteMoviesRepository, FavouriteMoviesRepository>();
 
 builder.Services.AddDbContext<FilmHarborDbContext>(options =>
 {

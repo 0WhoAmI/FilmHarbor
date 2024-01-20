@@ -1,6 +1,5 @@
 ﻿using FilmHarbor.Core.Entities;
 using FilmHarbor.Core.RepositoryContracts;
-using FilmHarbor.Infrastructure.DatabaseContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,14 +10,10 @@ namespace FilmHarbor.WebAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUsersRepository _usersRepository;
-        private readonly IMoviesRepository _moviesRepository;
-        private readonly FilmHarborDbContext _dbContext;
 
-        public UsersController(IUsersRepository usersRepository, IMoviesRepository moviesRepository, FilmHarborDbContext dbContext)
+        public UsersController(IUsersRepository usersRepository)
         {
             _usersRepository = usersRepository;
-            _moviesRepository = moviesRepository;
-            _dbContext = dbContext;
         }
 
         // GET: api/Users
@@ -96,35 +91,6 @@ namespace FilmHarbor.WebAPI.Controllers
             }
 
             await _usersRepository.DeleteUser(user.Id);
-
-            return NoContent();
-        }
-
-        [HttpGet("favourite-movies/{userId}")]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetFavouriteMovies(int userId)
-        {
-            User? user = await _usersRepository.GetUserByUserId(userId);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return await _usersRepository.GetFavouriteMovies(userId);
-        }
-
-        [HttpPost("favourite-movies/{userId}/{movieId}")]
-        public async Task<IActionResult> AddFavouriteMovie(int userId, int movieId)
-        {
-            await _usersRepository.AddFavouriteMovie(userId, movieId);
-
-            return NoContent();
-        }
-
-        [HttpDelete("favourite-movies/{userId}/{movieId}")]
-        public async Task<IActionResult> RemoveFavouriteMovie(int userId, int movieId)
-        {
-            await _usersRepository.RemoveFavouriteMovie(userId, movieId);
 
             return NoContent();
         }

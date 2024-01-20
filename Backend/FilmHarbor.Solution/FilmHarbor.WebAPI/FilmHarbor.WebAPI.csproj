@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FilmHarbor.Core\FilmHarbor.Core.csproj" />
     <ProjectReference Include="..\FilmHarbor.Infrastructure\FilmHarbor.Infrastructure.csproj" />
   </ItemGroup>
