@@ -26,15 +26,7 @@ namespace FilmHarbor.Infrastructure.Repositories
 
         public async Task<User?> GetUserByUserName(string userName)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(user => user.Name == userName);
-        }
-
-        public async Task<User> AddUser(User user)
-        {
-            _dbContext.Users.Add(user);
-            await _dbContext.SaveChangesAsync();
-
-            return user;
+            return await _dbContext.Users.FirstOrDefaultAsync(user => user.UserName == userName);
         }
 
         public async Task<bool> DeleteUser(int userId)
@@ -45,22 +37,14 @@ namespace FilmHarbor.Infrastructure.Repositories
             return rowsDeleted > 0;
         }
 
-        public async Task<User> UpdateUser(User user)
+        public Task<User> AddUser(User user)
         {
-            User? matchingUser = await _dbContext.Users.FirstOrDefaultAsync(m => m.Id == user.Id);
+            throw new NotImplementedException();
+        }
 
-            if (matchingUser == null)
-            {
-                return user;
-            }
-
-            matchingUser.Name = user.Name;
-            matchingUser.Password = user.Password;
-            matchingUser.Email = user.Email;
-
-            int rowsUpdated = await _dbContext.SaveChangesAsync();
-
-            return matchingUser;
+        public Task<User> UpdateUser(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

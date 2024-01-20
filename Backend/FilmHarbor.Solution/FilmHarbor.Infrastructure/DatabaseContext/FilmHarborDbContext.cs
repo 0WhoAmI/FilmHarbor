@@ -1,23 +1,23 @@
 ﻿using FilmHarbor.Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
 namespace FilmHarbor.Infrastructure.DatabaseContext
 {
-    public class FilmHarborDbContext : DbContext
+    public class FilmHarborDbContext : IdentityDbContext<User, Role, int>
     {
         public FilmHarborDbContext(DbContextOptions options) : base(options)
         {
         }
         public FilmHarborDbContext()
         {
-
         }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<Core.Entities.User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

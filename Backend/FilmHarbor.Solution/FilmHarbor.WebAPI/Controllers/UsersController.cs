@@ -1,19 +1,28 @@
-﻿using FilmHarbor.Core.Entities;
+﻿using FilmHarbor.Core.DTO;
+using FilmHarbor.Core.Entities;
 using FilmHarbor.Core.RepositoryContracts;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace FilmHarbor.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class UsersController : ControllerBase
     {
         private readonly IUsersRepository _usersRepository;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        private readonly RoleManager<Role> _roleManager;
 
-        public UsersController(IUsersRepository usersRepository)
+        public UsersController(IUsersRepository usersRepository, UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager)
         {
             _usersRepository = usersRepository;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         // GET: api/Users
@@ -37,49 +46,6 @@ namespace FilmHarbor.WebAPI.Controllers
             return user;
         }
 
-        // PUT: api/Users/5
-        [HttpPut("{userId}")]
-        public async Task<IActionResult> UpdateUser(int userId, User user)
-        {
-            if (userId != user.Id)
-            {
-                return BadRequest();
-            }
-
-            User? existingUser = await _usersRepository.GetUserByUserId(userId);
-            if (existingUser == null)
-            {
-                return NotFound();
-            }
-
-            try
-            {
-                User updateUser = await _usersRepository.UpdateUser(user);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await UserExists(userId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Users
-        [HttpPost]
-        public async Task<ActionResult<User>> AddUser(User user)
-        {
-            await _usersRepository.AddUser(user);
-
-            return CreatedAtAction("GetUser", new { userId = user.Id }, user);
-        }
-
         // DELETE: api/Users/5
         [HttpDelete("{userId}")]
         public async Task<IActionResult> DeleteUser(int userId)
@@ -95,11 +61,82 @@ namespace FilmHarbor.WebAPI.Controllers
             return NoContent();
         }
 
-        private async Task<bool> UserExists(int id)
+        [HttpPost("register")]
+        public async Task<ActionResult<User>> Register(RegisterDTO registerDTO)
         {
-            List<User> users = await _usersRepository.GetAllUsers();
+            //Validation
+            if (ModelState.IsValid == false)
+            {
+                string errorMessage = string.Join(" | ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
 
-            return users.Any(user => user.Id == id);
+                return Problem(errorMessage);
+            }
+
+            if (await _userManager.FindByEmailAsync(registerDTO.Email) != null)
+            {
+                return Problem("Email is already in use.");
+            }
+
+            //Create user
+            User user = new User()
+            {
+                UserName = registerDTO.Email,
+                Email = registerDTO.Email
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(user, registerDTO.Password);
+
+            if (result.Succeeded)
+            {
+                //Sign-in
+                await _signInManager.SignInAsync(user, isPersistent: false);
+
+                return Ok(user);
+            }
+            else
+            {
+                string errorMessage = string.Join(" | ", result.Errors.Select(e => e.Description));
+
+                return Problem(errorMessage);
+            }
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> Login(LoginDTO loginDTO)
+        {
+            //Validation
+            if (ModelState.IsValid == false)
+            {
+                string errorMessage = string.Join(" | ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+
+                return Problem(errorMessage);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(loginDTO.Email, loginDTO.Password, isPersistent: false, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                User? user = await _userManager.FindByEmailAsync(loginDTO.Email);
+
+                if (user == null)
+                {
+                    return NoContent();
+                }
+
+                return Ok(new { personName = user.PersonName, email = user.Email });
+            }
+            else
+            {
+                return Problem("Invalid email or password.");
+            }
+        }
+
+        [HttpGet("logout")]
+        public async Task<ActionResult<User>> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return NoContent();
         }
     }
 }

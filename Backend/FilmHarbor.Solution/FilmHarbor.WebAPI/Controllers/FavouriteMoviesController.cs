@@ -33,7 +33,7 @@ namespace FilmHarbor.WebAPI.Controllers
             return await _favouriteMoviesRepository.GetFavouriteMovies(userId);
         }
 
-        // PUT: api/FavouriteMovies/5
+        // PUT: api/FavouriteMovies/5/4
         [HttpPost("{userId}/{movieId}")]
         public async Task<IActionResult> AddFavouriteMovies(int userId, int movieId)
         {

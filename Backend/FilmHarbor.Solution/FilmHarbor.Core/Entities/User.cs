@@ -1,19 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmHarbor.Core.Entities
 {
-    public class User
+    public class User : IdentityUser<int>
     {
-        public int Id { get; set; }
-
         [StringLength(50)]
-        public string Name { get; set; } = null!;
+        public string? PersonName { get; set; }
 
-        [StringLength(255)]
-        public string Password { get; set; } = null!;
-
-        [StringLength(100)]
-        public string Email { get; set; } = null!;
 
         //Navigattion Properties
         public ICollection<Review> Reviews { get; set; } = new List<Review>();

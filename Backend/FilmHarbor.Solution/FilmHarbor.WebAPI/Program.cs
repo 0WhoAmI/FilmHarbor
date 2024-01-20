@@ -1,6 +1,9 @@
+using FilmHarbor.Core.Entities;
 using FilmHarbor.Core.RepositoryContracts;
 using FilmHarbor.Infrastructure.DatabaseContext;
 using FilmHarbor.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,18 +30,37 @@ builder.Services.AddDbContext<FilmHarborDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Identity
+
+builder.Services.AddIdentity<User, Role>(options =>
+{
+    options.Password.RequiredLength = 5;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireDigit = false;
+})
+    .AddEntityFrameworkStores<FilmHarborDbContext>()
+    .AddDefaultTokenProviders()
+    .AddUserStore<UserStore<User, Role, FilmHarborDbContext, int>>()
+    .AddRoleStore<RoleStore<Role, FilmHarborDbContext, int>>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 // SPRAWDZIC
+//app.UseRouting();
+//app.UseCors();
 app.UseCors(options =>
 {
     options.AllowAnyHeader();
@@ -47,6 +69,7 @@ app.UseCors(options =>
 });
 //
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
