@@ -1,19 +1,86 @@
 <h2>Movies</h2>
 
-<div class="table-container">
-  <table class="table w-100">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Movie Name</th>
-      </tr>
-    </thead>
+<div class="flex">
+  <div class="flex-1">
+    <div class="table-container">
+      <table class="table w-100">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Year</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <tr *ngFor="let movie of movies; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ movie.title }}</td>
-      </tr>
-    </tbody>
-  </table>
+        <tbody>
+          <tr *ngFor="let movie of movies">
+            <td>{{ movie.id }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.categoryId }}</td>
+            <td>{{ movie.releaseYear }}</td>
+            <td><mat-icon>delete</mat-icon></td>
+            <td><mat-icon>favorite</mat-icon></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- right box begins -->
+  <div class="flex-1 w-50">
+    <div class="form-container">
+      <h3>Create Movie</h3>
+
+      <form [formGroup]="addMovieForm" (ngSubmit)="addMovieSubmitted()">
+        <!-- Movie Title-->
+        <div class="form-field flex">
+          <div class="w-25">
+            <label for="MovieTitle" class="form-label pt">Movie Title</label>
+          </div>
+
+          <div class="flex-1">
+            <input
+              type="text"
+              class="form-input"
+              formControlName="title"
+            />
+
+            <span
+              class="text-red"
+              *ngIf="(addMovie_MovieTitleControl.touched || isAddMovieFormSubmitted) && (addMovie_MovieTitleControl.errors?.['required'])"
+              >Movie Title can't be blank</span
+            >
+
+            <div class="w-25">
+              <label for="MovieTitle" class="form-label pt">Movie Category</label>
+            </div>
+            
+            <input
+              type="text"
+              class="form-input"
+              formControlName="categoryId"
+            />
+
+            <span
+              class="text-red"
+              *ngIf="(addMovie_MovieTitleControl.touched || isAddMovieFormSubmitted) && (addMovie_MovieTitleControl.errors?.['required'])"
+              >Movie Category can't be blank</span
+            >
+          </div>
+        </div>
+
+        <div class="form-field flex">
+          <div class="w-25"></div>
+
+          <div class="flex-1">
+            <button class="button button-green-back">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- right box ends -->
 </div>

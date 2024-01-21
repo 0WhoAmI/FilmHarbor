@@ -9,7 +9,6 @@ namespace FilmHarbor.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
     public class UsersController : ControllerBase
     {
         private readonly IUsersRepository _usersRepository;
@@ -62,6 +61,7 @@ namespace FilmHarbor.WebAPI.Controllers
         }
 
         [HttpPost("register")]
+        [AllowAnonymous]
         public async Task<ActionResult<User>> Register(RegisterDTO registerDTO)
         {
             //Validation
@@ -102,6 +102,7 @@ namespace FilmHarbor.WebAPI.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<ActionResult<User>> Login(LoginDTO loginDTO)
         {
             //Validation

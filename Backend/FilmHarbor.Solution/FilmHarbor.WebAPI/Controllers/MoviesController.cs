@@ -73,7 +73,7 @@ namespace FilmHarbor.WebAPI.Controllers
 
         // POST: api/Movies
         [HttpPost]
-        public async Task<ActionResult<Movie>> AddMovie(Movie movie)
+        public async Task<ActionResult<Movie>> AddMovie( Movie movie)
         {
             await _moviesRepository.AddMovie(movie);
 
