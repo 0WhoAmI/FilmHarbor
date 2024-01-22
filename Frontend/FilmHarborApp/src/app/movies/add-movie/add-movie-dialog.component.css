@@ -1,0 +1,23 @@
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  margin-right: 10px;
+  min-width: 80px; /* Minimalna szerokość dla etykiety */
+}
+
+.form-input {
+  flex: 1;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.text-red {
+  color: red;
+  margin-top: -18px;
+  float: right;
+  height: 3px;
+}

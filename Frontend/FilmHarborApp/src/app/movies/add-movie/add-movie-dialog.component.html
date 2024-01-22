@@ -1,0 +1,53 @@
+<div class="form-container">
+  <h3>Create Movie</h3>
+
+  <form [formGroup]="addMovieForm" (ngSubmit)="addMovieSubmitted()">
+    <div class="form-group">
+      <label for="title" class="form-label pt">Title</label>
+      <input type="text" class="form-input" formControlName="title" />
+    </div>
+    <span
+      class="text-red"
+      *ngIf="(addMovie_MovieTitleControl.touched || isAddMovieFormSubmitted) && (addMovie_MovieTitleControl.errors?.['required'])"
+      >Movie Title can't be blank</span
+    >
+
+    <div class="form-group">
+      <label for="categoryId" class="form-label pt">Category</label>
+      <input type="number" class="form-input" formControlName="categoryId" />
+    </div>
+    <span
+      class="text-red"
+      *ngIf="(addMovie_MovieCategoryControl.touched || isAddMovieFormSubmitted) && (addMovie_MovieTitleControl.errors?.['required'])"
+      >Movie Category can't be blank</span
+    >
+
+    <div class="form-group">
+      <label for="releaseYear" class="form-label pt">Year</label><br />
+      <input type="number" class="form-input" formControlName="releaseYear" />
+    </div>
+    <span
+      class="text-red"
+      *ngIf="addMovie_MovieReleaseYearControl.errors?.['pattern']"
+      >Movie Year must have four numbers</span
+    >
+
+    <div class="form-group">
+      <label for="imageUrl" class="form-label pt">Image</label>
+      <input type="text" class="form-input" formControlName="imageUrl" />
+    </div>
+
+    <div class="form-group">
+      <label for="description" class="form-label pt">Description</label>
+      <input type="text" class="form-input" formControlName="description" />
+    </div>
+
+    <div class="form-field flex">
+      <div class="w-25"></div>
+
+      <div class="flex-1 text-right">
+        <button class="button button-green-back">Create</button>
+      </div>
+    </div>
+  </form>
+</div>

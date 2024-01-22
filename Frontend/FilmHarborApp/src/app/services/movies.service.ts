@@ -18,11 +18,13 @@ export class MoviesService {
 
   public addMovie(movie: Movie): Observable<Movie> {
     const m = {
-      categoryId: 2,
-      title: 'tescikq',
+      categoryId: 1,
+      description: "d",
+      imageUrl: "i",
+      releaseYear: 1234,
+      title: "t"
     } as Movie;
     console.log(movie);
-    console.log(m);
     return this.httpClient.post<Movie>(`${API_BASE_URL}/Movies`, movie);
   }
 }

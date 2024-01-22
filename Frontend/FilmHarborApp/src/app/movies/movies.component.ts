@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Movie } from '../models/movies';
 import { MoviesService } from '../services/movies.service';
+import { MovieDialogComponent } from './add-movie/add-movie-dialog.component';
 
 @Component({
   selector: 'app-movies',
@@ -10,15 +11,11 @@ import { MoviesService } from '../services/movies.service';
 })
 export class MoviesComponent {
   movies: Movie[] = [];
-  addMovieForm: FormGroup;
-  isAddMovieFormSubmitted: boolean = false;
-
-  constructor(private moviesService: MoviesService) {
-    this.addMovieForm = new FormGroup({
-      title: new FormControl(null, [Validators.required]),
-      categoryId: new FormControl(null, [Validators.required]),
-    });
-  }
+  
+  constructor(
+    private moviesService: MoviesService,
+    private dialog: MatDialog
+  ) {}
 
   loadMovies() {
     this.moviesService.getMovies().subscribe(
@@ -35,34 +32,26 @@ export class MoviesComponent {
     this.loadMovies();
   }
 
-  get addMovie_MovieTitleControl(): any {
-    return this.addMovieForm.controls['title'];
-  }
-
-  get addMovie_MovieCategoryControl(): any {
-    return this.addMovieForm.controls['categoryId'];
-  }
-
-  public addMovieSubmitted() {
-    this.isAddMovieFormSubmitted = true;
-
-    this.moviesService.addMovie(this.addMovieForm.value).subscribe({
-      next: (response: Movie) => {
-        // this.loadMovies();
-        this.movies.push({
-          title: response.title,
-          categoryId: response.categoryId,
-          releaseYear: response.releaseYear,
-        } as Movie);
-
-        this.addMovieForm.reset();
-        this.isAddMovieFormSubmitted = false;
-      },
-      error: (error: any) => {
-        console.log(error);
-      },
-
-      complete: () => {},
+  public onAddClicked() {
+    const dialogRef = this.dialog.open(MovieDialogComponent, {
+      width: '400px', // Możesz dostosować szerokość okna
     });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Okno zostało zamknięte', result);
+      this.loadMovies();
+    });
+  }
+
+  public onDeleteClicked() {
+    console.log(1);
+  }
+
+  public onFavouriteClicked() {
+    console.log(2);
+  }
+
+  public onEditClicked() {
+    console.log(3);
   }
 }
