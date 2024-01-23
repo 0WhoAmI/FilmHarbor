@@ -30,7 +30,7 @@
             <td>{{ movie.categoryId }}</td>
             <td>{{ movie.releaseYear }}</td>
             <td class="text-right">
-              <mat-icon (click)="onDeleteClicked()">delete</mat-icon>
+              <mat-icon (click)="onDeleteClicked(movie.id)">delete</mat-icon>
               <mat-icon (click)="onFavouriteClicked()">favorite</mat-icon>
             </td>
           </tr>

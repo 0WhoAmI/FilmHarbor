@@ -11,28 +11,35 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  sendGet(url: string): Observable<HttpResponse<any>> {
+  sendGet<T>(url: string): Observable<T> {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', 'Bearer mytoken');
 
-    return this.httpClient.get<any>(`${this.baseUrl}${url}`, {
+    return this.httpClient.get<T>(`${this.baseUrl}${url}`, {
       headers: headers,
     });
   }
 
-  sendPost(url: string, body: any): Observable<HttpResponse<any>> {
+  sendPost<T>(url: string, body: any): Observable<T> {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', 'Bearer mytoken');
 
-    return this.httpClient.post<any>(`${this.baseUrl}${url}`, body, {
+    return this.httpClient.post<T>(`${this.baseUrl}${url}`, body, {
       headers: headers,
     });
   }
 
-  sendPut(url: string, body: any): Observable<HttpResponse<any>> {
-    return this.httpClient.put<any>(`${this.baseUrl}${url}`, body);
+  sendPut<T>(url: string, body: any): Observable<T> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', 'Bearer mytoken');
+
+    return this.httpClient.put<T>(`${this.baseUrl}${url}`, body);
   }
-  sendDelete(url: string): Observable<HttpResponse<any>> {
-    return this.httpClient.delete<any>(`${this.baseUrl}${url}`);
+
+  sendDelete<T>(url: string): Observable<T> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', 'Bearer mytoken');
+
+    return this.httpClient.delete<T>(`${this.baseUrl}${url}`);
   }
 }

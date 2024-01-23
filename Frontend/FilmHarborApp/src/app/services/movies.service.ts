@@ -1,10 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movies';
 import { ApiService } from './api.service';
-import { HttpClient } from '@angular/common/http';
-
-const API_BASE_URL: string = 'http://localhost:5000/api';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +12,19 @@ export class MoviesService {
 
   constructor(private httpClient: HttpClient, private apiService: ApiService) {}
 
-  public getMovies(): Observable<any> {
-    return this.apiService.sendGet('/Movies');
+  public getMovies(): Observable<Movie[]> {
+    return this.apiService.sendGet<Movie[]>('/Movies');
   }
 
-  public addMovie(movie: Movie): Observable<any> {
-    return this.httpClient.post<Movie>(`${API_BASE_URL}/Movies`, movie);
-    // return this.apiService.sendPost('/Movies', movie);
+  public addMovie(movie: Movie): Observable<Movie> {
+    return this.apiService.sendPost<Movie>('/Movies', movie);
+  }
+
+  public updateMovie(movieId: number, movie: Movie): Observable<void> {
+    return this.apiService.sendPut<void>(`/Movies/${movieId}`, movie);
+  }
+
+  public deleteMovie(movieId: number): Observable<void> {
+    return this.apiService.sendDelete<void>(`/Movies/${movieId}`);
   }
 }

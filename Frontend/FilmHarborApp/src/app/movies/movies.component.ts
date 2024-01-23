@@ -38,8 +38,10 @@ export class MoviesComponent {
     });
   }
 
-  public onDeleteClicked() {
-    console.log(1);
+  public onDeleteClicked(movieId: number) {
+    this.moviesService.deleteMovie(movieId).subscribe(() => {
+      this.loadMovies();
+    });
   }
 
   public onFavouriteClicked() {

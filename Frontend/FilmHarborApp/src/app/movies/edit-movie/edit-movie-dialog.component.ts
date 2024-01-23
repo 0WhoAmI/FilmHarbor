@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Movie } from '../../models/movies';
 import { MoviesService } from '../../services/movies.service';
 
@@ -12,7 +12,8 @@ import { MoviesService } from '../../services/movies.service';
 export class EditMovieDialogComponent {
   constructor(
     private moviesService: MoviesService,
-    @Inject(MAT_DIALOG_DATA) public data: { movieData: Movie }
+    @Inject(MAT_DIALOG_DATA) public data: { movieData: Movie },
+    private dialogRef: MatDialogRef<EditMovieDialogComponent>
   ) {
     this.addMovieForm = new FormGroup({
       title: new FormControl(data.movieData.title, [Validators.required]),
@@ -46,6 +47,10 @@ export class EditMovieDialogComponent {
     return this.addMovieForm.controls['description'];
   }
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
   public editMovieSubmitted() {
     if (this.addMovieForm.invalid) {
       // TODO: komunikat
@@ -54,11 +59,16 @@ export class EditMovieDialogComponent {
 
     this.isAddMovieFormSubmitted = true;
     // TODO: Zmieniac ze stringa na id
-    console.log((this.addMovieForm.value.categoryId = 39));
+    // console.log((this.addMovieForm.value.categoryId = 39));
 
-    this.moviesService.addMovie(this.addMovieForm.value).subscribe(() => {
-      this.addMovieForm.reset();
-      this.isAddMovieFormSubmitted = false;
-    });
+    this.addMovieForm.value.id = this.data.movieData.id;
+
+    this.moviesService
+      .updateMovie(this.data.movieData.id, this.addMovieForm.value)
+      .subscribe(() => {
+        this.addMovieForm.reset();
+        this.isAddMovieFormSubmitted = false;
+        this.closeDialog();
+      });
   }
 }
