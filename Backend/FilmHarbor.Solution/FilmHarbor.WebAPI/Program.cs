@@ -45,10 +45,23 @@ builder.Services.AddIdentity<User, Role>(options =>
     .AddUserStore<UserStore<User, Role, FilmHarborDbContext, int>>()
     .AddRoleStore<RoleStore<Role, FilmHarborDbContext, int>>();
 
+// CORS: localhost:4200
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        policyBuilder
+        .WithOrigins(builder.Configuration.GetSection("AllowedOrigins").Get<string[]>())
+        .WithHeaders("Authorization", "origin", "accept", "content-type")
+        .WithMethods("GET", "POST", "PUT", "DELETE");
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -58,16 +71,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local"))
     app.UseSwaggerUI();
 }
 
-// SPRAWDZIC
-//app.UseRouting();
-//app.UseCors();
-app.UseCors(options =>
-{
-    options.AllowAnyHeader();
-    options.AllowAnyMethod();
-    options.AllowAnyOrigin();
-});
-//
+app.UseRouting();
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();

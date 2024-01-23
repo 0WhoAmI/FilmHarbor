@@ -4,3 +4,8 @@ mat-icon:hover {
   background-color: gray /*#84978b*/;
   border-radius: 20%;
 }
+
+tr.hover-gray:hover {
+  cursor: pointer;
+  background-color: gray;
+}

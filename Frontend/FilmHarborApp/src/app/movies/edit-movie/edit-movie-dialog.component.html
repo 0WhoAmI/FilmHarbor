@@ -1,7 +1,7 @@
 <div class="form-container">
   <h3>Create Movie</h3>
 
-  <form [formGroup]="addMovieForm" (ngSubmit)="addMovieSubmitted()">
+  <form [formGroup]="addMovieForm" (ngSubmit)="editMovieSubmitted()">
     <div class="form-group">
       <label for="title" class="form-label pt">Title</label>
       <input type="text" class="form-input" formControlName="title" />

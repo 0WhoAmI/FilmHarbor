@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Movie } from '../models/movies';
 import { MoviesService } from '../services/movies.service';
-import { MovieDialogComponent } from './add-movie/add-movie-dialog.component';
+import { AddMovieDialogComponent } from './add-movie/add-movie-dialog.component';
+import { EditMovieDialogComponent } from './edit-movie/edit-movie-dialog.component';
 
 @Component({
   selector: 'app-movies',
@@ -11,21 +12,16 @@ import { MovieDialogComponent } from './add-movie/add-movie-dialog.component';
 })
 export class MoviesComponent {
   movies: Movie[] = [];
-  
+
   constructor(
     private moviesService: MoviesService,
     private dialog: MatDialog
   ) {}
 
   loadMovies() {
-    this.moviesService.getMovies().subscribe(
-      (response: Movie[]) => {
-        this.movies = response;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.moviesService.getMovies().subscribe((response: Movie[]) => {
+      this.movies = response;
+    });
   }
 
   ngOnInit() {
@@ -33,12 +29,11 @@ export class MoviesComponent {
   }
 
   public onAddClicked() {
-    const dialogRef = this.dialog.open(MovieDialogComponent, {
-      width: '400px', // Możesz dostosować szerokość okna
+    const dialogRef = this.dialog.open(AddMovieDialogComponent, {
+      width: '400px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('Okno zostało zamknięte', result);
       this.loadMovies();
     });
   }
@@ -51,7 +46,14 @@ export class MoviesComponent {
     console.log(2);
   }
 
-  public onEditClicked() {
-    console.log(3);
+  public onEditClicked(movie: Movie) {
+    const dialogRef = this.dialog.open(EditMovieDialogComponent, {
+      width: '400px',
+      data: { movieData: movie },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.loadMovies();
+    });
   }
 }

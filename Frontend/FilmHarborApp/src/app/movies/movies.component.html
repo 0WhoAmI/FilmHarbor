@@ -24,12 +24,12 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let movie of movies" (dblclick)="onEditClicked()">
+          <tr class="hover-gray" *ngFor="let movie of movies" (dblclick)="onEditClicked(movie)">
             <td>{{ movie.id }}</td>
             <td>{{ movie.title }}</td>
             <td>{{ movie.categoryId }}</td>
             <td>{{ movie.releaseYear }}</td>
-            <td>
+            <td class="text-right">
               <mat-icon (click)="onDeleteClicked()">delete</mat-icon>
               <mat-icon (click)="onFavouriteClicked()">favorite</mat-icon>
             </td>
