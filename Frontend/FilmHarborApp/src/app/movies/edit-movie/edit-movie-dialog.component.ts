@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Movie } from '../../models/movies';
+import { Category } from '../../models/category';
+import { Movie } from '../../models/movie';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -12,12 +13,13 @@ import { MoviesService } from '../../services/movies.service';
 export class EditMovieDialogComponent {
   constructor(
     private moviesService: MoviesService,
-    @Inject(MAT_DIALOG_DATA) public data: { movieData: Movie },
+    @Inject(MAT_DIALOG_DATA)
+    public data: { movieData: Movie; categories: Category[] },
     private dialogRef: MatDialogRef<EditMovieDialogComponent>
   ) {
     this.addMovieForm = new FormGroup({
       title: new FormControl(data.movieData.title, [Validators.required]),
-      categoryId: new FormControl(data.movieData.categoryId, [
+      categoryId: new FormControl(data.movieData.category?.id, [
         Validators.required,
       ]),
       releaseYear: new FormControl(data.movieData.releaseYear, [
@@ -26,10 +28,13 @@ export class EditMovieDialogComponent {
       imageUrl: new FormControl(),
       description: new FormControl(data.movieData.description),
     });
+
+    this.selectedCategoryId = data.movieData.category?.id;
   }
 
   addMovieForm: FormGroup;
   isAddMovieFormSubmitted: boolean = false;
+  selectedCategoryId: number | undefined;
 
   get addMovie_MovieTitleControl(): any {
     return this.addMovieForm.controls['title'];
@@ -56,12 +61,10 @@ export class EditMovieDialogComponent {
       // TODO: komunikat
       return;
     }
-
     this.isAddMovieFormSubmitted = true;
-    // TODO: Zmieniac ze stringa na id
-    // console.log((this.addMovieForm.value.categoryId = 39));
 
     this.addMovieForm.value.id = this.data.movieData.id;
+    this.addMovieForm.value.categoryId = this.selectedCategoryId;
 
     this.moviesService
       .updateMovie(this.data.movieData.id, this.addMovieForm.value)
@@ -70,5 +73,11 @@ export class EditMovieDialogComponent {
         this.isAddMovieFormSubmitted = false;
         this.closeDialog();
       });
+  }
+
+  public onChangeSelectedCategory() {
+    this.selectedCategoryId = +(
+      document.getElementById('selectedCategoryId') as HTMLSelectElement
+    ).value;
   }
 }

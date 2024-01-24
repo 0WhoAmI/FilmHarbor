@@ -1,16 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Movie } from '../models/movies';
+import { Movie } from '../models/movie';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
-  private movies: Movie[] = [];
-
-  constructor(private httpClient: HttpClient, private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {}
 
   public getMovies(): Observable<Movie[]> {
     return this.apiService.sendGet<Movie[]>('/Movies');

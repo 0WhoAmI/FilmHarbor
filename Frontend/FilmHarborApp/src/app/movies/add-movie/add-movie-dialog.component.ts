@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Category } from '../../models/category';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -11,19 +12,24 @@ import { MoviesService } from '../../services/movies.service';
 export class AddMovieDialogComponent {
   constructor(
     private moviesService: MoviesService,
+    @Inject(MAT_DIALOG_DATA)
+    public data: { categories: Category[] },
     private dialogRef: MatDialogRef<AddMovieDialogComponent>
   ) {
     this.addMovieForm = new FormGroup({
       title: new FormControl(null, [Validators.required]),
-      categoryId: new FormControl(null, [Validators.required]),
+      categoryId: new FormControl(data.categories[0].id, [Validators.required]),
       releaseYear: new FormControl(null, [Validators.pattern(/^\d{4}$/)]),
       imageUrl: new FormControl(),
       description: new FormControl(),
     });
+
+    this.selectedCategoryId = data.categories[0].id;
   }
 
   addMovieForm: FormGroup;
   isAddMovieFormSubmitted: boolean = false;
+  selectedCategoryId: number | undefined;
 
   get addMovie_MovieTitleControl(): any {
     return this.addMovieForm.controls['title'];
@@ -46,19 +52,25 @@ export class AddMovieDialogComponent {
   }
 
   public addMovieSubmitted() {
+    console.log(this.addMovieForm.value);
     if (this.addMovieForm.invalid) {
       // TODO: komunikat
+      console.log(1);
       return;
     }
-
     this.isAddMovieFormSubmitted = true;
-    // TODO: Zmieniac ze stringa na id
-    // console.log((this.addMovieForm.value.categoryId = 39));
+    this.addMovieForm.value.categoryId = this.selectedCategoryId;
 
     this.moviesService.addMovie(this.addMovieForm.value).subscribe(() => {
       this.addMovieForm.reset();
       this.isAddMovieFormSubmitted = false;
       this.closeDialog();
     });
+  }
+
+  public onChangeSelectedCategory() {
+    this.selectedCategoryId = +(
+      document.getElementById('selectedCategoryId') as HTMLSelectElement
+    ).value;
   }
 }

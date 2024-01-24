@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {
   BrowserModule,
@@ -29,6 +29,7 @@ import { MoviesComponent } from './movies/movies.component';
     ReactiveFormsModule,
     MatIconModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

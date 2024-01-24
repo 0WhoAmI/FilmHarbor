@@ -14,7 +14,15 @@
 
     <div class="form-group">
       <label for="categoryId" class="form-label pt">Category</label>
-      <input type="number" class="form-input" formControlName="categoryId" />
+      <select id="selectedCategoryId" (change)="onChangeSelectedCategory()">
+        <option
+          *ngFor="let category of data.categories"
+          [value]="category.id"
+          [selected]="category.id === data.movieData.categoryId"
+        >
+          {{ category.name }}
+        </option>
+      </select>
     </div>
     <span
       class="text-red"
@@ -46,7 +54,7 @@
       <div class="w-25"></div>
 
       <div class="flex-1 text-right">
-        <button class="button button-green-back">Create</button>
+        <button class="button button-green-back">Update</button>
       </div>
     </div>
   </form>

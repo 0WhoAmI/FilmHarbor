@@ -14,7 +14,11 @@
 
     <div class="form-group">
       <label for="categoryId" class="form-label pt">Category</label>
-      <input type="number" class="form-input" formControlName="categoryId" />
+      <select id="selectedCategoryId" (change)="onChangeSelectedCategory()">
+        <option *ngFor="let category of data.categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
     </div>
     <span
       class="text-red"
