@@ -80,6 +80,7 @@ namespace FilmHarbor.WebAPI.Controllers
             //Create user
             User user = new User()
             {
+                PersonName = registerDTO.Name,
                 UserName = registerDTO.Email,
                 Email = registerDTO.Email
             };

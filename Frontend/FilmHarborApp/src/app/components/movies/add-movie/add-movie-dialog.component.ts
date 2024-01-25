@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Category } from '../../models/category';
-import { MoviesService } from '../../services/movies.service';
+import { Category } from '../../../models/category';
+import { MoviesService } from '../../../services/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -52,10 +52,7 @@ export class AddMovieDialogComponent {
   }
 
   public addMovieSubmitted() {
-    console.log(this.addMovieForm.value);
     if (this.addMovieForm.invalid) {
-      // TODO: komunikat
-      console.log(1);
       return;
     }
     this.isAddMovieFormSubmitted = true;

@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Category } from '../../models/category';
-import { Movie } from '../../models/movie';
-import { MoviesService } from '../../services/movies.service';
+import { Category } from '../../../models/category';
+import { Movie } from '../../../models/movie';
+import { MoviesService } from '../../../services/movies.service';
 
 @Component({
   selector: 'app-movies',

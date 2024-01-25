@@ -9,18 +9,22 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { AddMovieDialogComponent } from './movies/add-movie/add-movie-dialog.component';
-import { EditMovieDialogComponent } from './movies/edit-movie/edit-movie-dialog.component';
-import { MoviesComponent } from './movies/movies.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddMovieDialogComponent } from './components/movies/add-movie/add-movie-dialog.component';
+import { EditMovieDialogComponent } from './components/movies/edit-movie/edit-movie-dialog.component';
+import { MoviesComponent } from './components/movies/movies.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
+    AddMovieDialogComponent,
     AppComponent,
     CategoriesComponent,
-    MoviesComponent,
-    AddMovieDialogComponent,
     EditMovieDialogComponent,
+    LoginComponent,
+    MoviesComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Category } from '../models/category';
-import { Movie } from '../models/movie';
-import { CategoryService } from '../services/categories.service';
-import { MoviesService } from '../services/movies.service';
+import { Category } from '../../models/category';
+import { Movie } from '../../models/movie';
+import { CategoriesService } from '../../services/categories.service';
+import { MoviesService } from '../../services/movies.service';
 import { AddMovieDialogComponent } from './add-movie/add-movie-dialog.component';
 import { EditMovieDialogComponent } from './edit-movie/edit-movie-dialog.component';
 
@@ -18,7 +18,7 @@ export class MoviesComponent {
 
   constructor(
     private moviesService: MoviesService,
-    private categoryService: CategoryService,
+    private categoryService: CategoriesService,
     private dialog: MatDialog
   ) {}
 
@@ -63,6 +63,15 @@ export class MoviesComponent {
   }
 
   public onDeleteClicked(movieId: number) {
+    if (
+      !confirm(
+        `Are you sure to delete this movie: ${
+          this.movies.find((movie) => movie.id === movieId)?.title
+        }?`
+      )
+    ) {
+      return;
+    }
     this.moviesService.deleteMovie(movieId).subscribe(() => {
       this.ngOnInit();
     });

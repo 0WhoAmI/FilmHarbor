@@ -8,9 +8,33 @@
 
         <div class="flex-1" id="search-box-div">
           <div class="navbar account-links">
-            <ul>
+            <ul
+              *ngIf="
+                usersService.currentLoggedUser?.personName === '' ||
+                usersService.currentLoggedUser?.personName === null ||
+                usersService.currentLoggedUser?.personName === undefined
+              "
+            >
               <li>
                 <a [routerLink]="['/login']">Login</a>
+              </li>
+
+              <li>
+                <a [routerLink]="['/register']">Register</a>
+              </li>
+            </ul>
+
+            <ul
+              *ngIf="
+                usersService.currentLoggedUser?.personName !== '' &&
+                usersService.currentLoggedUser?.personName !== null &&
+                usersService.currentLoggedUser?.personName !== undefined
+              "
+            >
+              <li>
+                <a href="#" onclick="return false" (click)="onLogOutClicked()"
+                  >Logout</a
+                >
               </li>
             </ul>
           </div>

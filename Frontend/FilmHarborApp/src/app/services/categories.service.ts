@@ -6,10 +6,10 @@ import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class CategoriesService {
   constructor(private apiService: ApiService) {}
 
   public getCategories(): Observable<Category[]> {
-    return this.apiService.sendGet<Category[]>('/Categories');
+    return this.apiService.sendGet<Category[]>('Categories');
   }
 }
