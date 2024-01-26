@@ -6,6 +6,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'movies', component: MoviesComponent },

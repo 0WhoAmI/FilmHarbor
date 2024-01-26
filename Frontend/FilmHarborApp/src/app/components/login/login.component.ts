@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../models/user';
+import { AuthenticationResponse } from '../../models/authentication-response';
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -34,11 +34,12 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.usersService
         .login(this.loginForm.value)
-        .subscribe((response: User) => {
+        .subscribe((response: AuthenticationResponse) => {
           console.log(response);
 
           this.isLoginFormSubmitted = false;
-          this.usersService.currentLoggedUser = response;
+          this.usersService.currentLoggedUserName = response.personName;
+          localStorage['token'] = response.token;
 
           this.router.navigate(['/movies']);
 

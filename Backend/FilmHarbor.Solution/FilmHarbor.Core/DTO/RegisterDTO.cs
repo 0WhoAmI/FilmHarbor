@@ -5,7 +5,7 @@ namespace FilmHarbor.Core.DTO
     public class RegisterDTO
     {
         [Required(ErrorMessage = "User Name can't be blank")]
-        public string Name { get; set; } = null!;
+        public string PersonName { get; set; } = null!;
 
         [Required(ErrorMessage = "Email can't be blank")]
         [EmailAddress(ErrorMessage = "Email should be in a proper email address format")]

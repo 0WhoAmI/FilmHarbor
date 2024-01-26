@@ -1,6 +1,7 @@
 ﻿using FilmHarbor.Core.DTO;
 using FilmHarbor.Core.Entities;
 using FilmHarbor.Core.RepositoryContracts;
+using FilmHarbor.Core.ServiceContracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +16,19 @@ namespace FilmHarbor.WebAPI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly RoleManager<Role> _roleManager;
+        private readonly IJwtService _jwtService;
 
-        public UsersController(IUsersRepository usersRepository, UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager)
+        public UsersController(IUsersRepository usersRepository,
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            RoleManager<Role> roleManager,
+            IJwtService jwtService)
         {
             _usersRepository = usersRepository;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _jwtService = jwtService;
         }
 
         // GET: api/Users
@@ -80,7 +87,7 @@ namespace FilmHarbor.WebAPI.Controllers
             //Create user
             User user = new User()
             {
-                PersonName = registerDTO.Name,
+                PersonName = registerDTO.PersonName,
                 UserName = registerDTO.Email,
                 Email = registerDTO.Email
             };
@@ -92,7 +99,9 @@ namespace FilmHarbor.WebAPI.Controllers
                 //Sign-in
                 await _signInManager.SignInAsync(user, isPersistent: false);
 
-                return Ok(user);
+                AuthenticationResponse authenticationResponse = _jwtService.CreateJwtToken(user);
+
+                return Ok(authenticationResponse);
             }
             else
             {
@@ -125,7 +134,12 @@ namespace FilmHarbor.WebAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(new { personName = user.PersonName, email = user.Email });
+                //Sign-in
+                await _signInManager.SignInAsync(user, isPersistent: false);
+
+                AuthenticationResponse authenticationResponse = _jwtService.CreateJwtToken(user);
+
+                return Ok(authenticationResponse);
             }
             else
             {

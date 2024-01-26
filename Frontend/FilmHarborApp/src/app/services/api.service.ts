@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment';
@@ -13,7 +13,10 @@ export class ApiService {
 
   sendGet<T>(url: string): Observable<T> {
     let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Bearer mytoken');
+    headers = headers.append(
+      'Authorization',
+      `Bearer ${localStorage['token']}`
+    );
 
     return this.httpClient.get<T>(`${this.baseUrl}${url}`, {
       headers: headers,
@@ -22,7 +25,10 @@ export class ApiService {
 
   sendPost<T>(url: string, body: any): Observable<T> {
     let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Bearer mytoken');
+    headers = headers.append(
+      'Authorization',
+      `Bearer ${localStorage['token']}`
+    );
 
     return this.httpClient.post<T>(`${this.baseUrl}${url}`, body, {
       headers: headers,
@@ -31,15 +37,25 @@ export class ApiService {
 
   sendPut<T>(url: string, body: any): Observable<T> {
     let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Bearer mytoken');
+    headers = headers.append(
+      'Authorization',
+      `Bearer ${localStorage['token']}`
+    );
 
-    return this.httpClient.put<T>(`${this.baseUrl}${url}`, body);
+    return this.httpClient.put<T>(`${this.baseUrl}${url}`, body, {
+      headers: headers,
+    });
   }
 
   sendDelete<T>(url: string): Observable<T> {
     let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Bearer mytoken');
+    headers = headers.append(
+      'Authorization',
+      `Bearer ${localStorage['token']}`
+    );
 
-    return this.httpClient.delete<T>(`${this.baseUrl}${url}`);
+    return this.httpClient.delete<T>(`${this.baseUrl}${url}`, {
+      headers: headers,
+    });
   }
 }

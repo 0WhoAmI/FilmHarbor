@@ -3,16 +3,16 @@
     <div class="margin-bottom">
       <div class="flex">
         <div class="flex-1" id="top-bar-div">
-          <h2 class="app-title">FilmHarbor</h2>
+          <h2 class="app-title" (click)="onLogOutClicked()">FilmHarbor</h2>
         </div>
 
         <div class="flex-1" id="search-box-div">
           <div class="navbar account-links">
             <ul
               *ngIf="
-                usersService.currentLoggedUser?.personName === '' ||
-                usersService.currentLoggedUser?.personName === null ||
-                usersService.currentLoggedUser?.personName === undefined
+                usersService.currentLoggedUserName === '' ||
+                usersService.currentLoggedUserName === null ||
+                usersService.currentLoggedUserName === undefined
               "
             >
               <li>
@@ -26,9 +26,9 @@
 
             <ul
               *ngIf="
-                usersService.currentLoggedUser?.personName !== '' &&
-                usersService.currentLoggedUser?.personName !== null &&
-                usersService.currentLoggedUser?.personName !== undefined
+                usersService.currentLoggedUserName !== '' &&
+                usersService.currentLoggedUserName !== null &&
+                usersService.currentLoggedUserName !== undefined
               "
             >
               <li>
@@ -43,7 +43,13 @@
     </div>
 
     <div class="navbar mb">
-      <ul>
+      <ul
+        *ngIf="
+          usersService.currentLoggedUserName !== '' &&
+          usersService.currentLoggedUserName !== null &&
+          usersService.currentLoggedUserName !== undefined
+        "
+      >
         <li>
           <a [routerLink]="['/categories']" [routerLinkActive]="['nav-active']"
             >Categories</a
