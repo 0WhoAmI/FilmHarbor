@@ -15,6 +15,7 @@ import { AddMovieDialogComponent } from './components/movies/add-movie/add-movie
 import { EditMovieDialogComponent } from './components/movies/edit-movie/edit-movie-dialog.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UsersComponent } from './components/user/users.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RegisterComponent } from './components/register/register.component';
     EditMovieDialogComponent,
     LoginComponent,
     MoviesComponent,
+    UsersComponent,
     RegisterComponent,
   ],
   imports: [

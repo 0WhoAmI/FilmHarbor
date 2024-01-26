@@ -11,11 +11,17 @@ import { ApiService } from './api.service';
 })
 export class UsersService {
   public currentLoggedUserName: string | null = null;
+  public currentLoggedUserId: number = 0;
 
   constructor(private apiService: ApiService) {}
 
-  public register(registerUser: RegisterUser): Observable<AuthenticationResponse> {
-    return this.apiService.sendPost<AuthenticationResponse>('Users/register', registerUser);
+  public register(
+    registerUser: RegisterUser
+  ): Observable<AuthenticationResponse> {
+    return this.apiService.sendPost<AuthenticationResponse>(
+      'Users/register',
+      registerUser
+    );
   }
 
   public login(loginUser: LoginUser): Observable<AuthenticationResponse> {

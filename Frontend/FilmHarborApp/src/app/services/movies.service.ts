@@ -24,4 +24,8 @@ export class MoviesService {
   public deleteMovie(movieId: number): Observable<void> {
     return this.apiService.sendDelete<void>(`Movies/${movieId}`);
   }
+
+  public getMoviesByCategoryId(categoryId: number): Observable<Movie[]> {
+    return this.apiService.sendGet<Movie[]>(`Movies/category/${categoryId}`);
+  }
 }

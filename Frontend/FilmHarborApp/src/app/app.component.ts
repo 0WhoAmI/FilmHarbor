@@ -10,11 +10,19 @@ import { UsersService } from './services/users.service';
 export class AppComponent {
   title = 'FilmHarborApp';
 
-  constructor(public usersService: UsersService, protected router: Router) {}
+  constructor(public usersService: UsersService, protected router: Router) {
+    this.onLogOutClicked();
+  }
 
   onLogOutClicked() {
+    if (this.usersService.currentLoggedUserName == null) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.usersService.logout().subscribe(() => {
       this.usersService.currentLoggedUserName = null;
+      this.usersService.currentLoggedUserId = 0;
       localStorage.removeItem('token');
 
       this.router.navigate(['/login']);

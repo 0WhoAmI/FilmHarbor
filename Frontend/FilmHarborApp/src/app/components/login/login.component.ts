@@ -39,6 +39,7 @@ export class LoginComponent {
 
           this.isLoginFormSubmitted = false;
           this.usersService.currentLoggedUserName = response.personName;
+          this.usersService.currentLoggedUserId = response.id;
           localStorage['token'] = response.token;
 
           this.router.navigate(['/movies']);

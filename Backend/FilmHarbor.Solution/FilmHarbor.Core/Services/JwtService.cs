@@ -43,7 +43,7 @@ namespace FilmHarbor.Core.Services
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             string token = tokenHandler.WriteToken(tokenGenerator);
 
-            return new AuthenticationResponse() { Token = token, Email = user.Email, PersonName = user.PersonName, Expiration = expiration };
+            return new AuthenticationResponse() { Token = token, Id = user.Id, Email = user.Email, PersonName = user.PersonName, Expiration = expiration };
         }
     }
 }

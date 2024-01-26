@@ -37,6 +37,13 @@ namespace FilmHarbor.WebAPI.Controllers
             return movie;
         }
 
+        // GET: api/Movies/5
+        [HttpGet("category/{categoryId}")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesByCategoryId(int categoryId)
+        {
+            return await _moviesRepository.GetMoviesByCategoryId(categoryId);
+        }
+
         // PUT: api/Movies/5
         [HttpPut("{movieId}")]
         public async Task<IActionResult> UpdateMovie(int movieId, Movie movie)

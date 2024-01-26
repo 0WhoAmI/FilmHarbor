@@ -3,7 +3,9 @@
     <div class="margin-bottom">
       <div class="flex">
         <div class="flex-1" id="top-bar-div">
-          <h2 class="app-title" (click)="onLogOutClicked()">FilmHarbor</h2>
+          <h2 class="app-title">
+            <a (click)="onLogOutClicked()">FilmHarbor</a>
+          </h2>
         </div>
 
         <div class="flex-1" id="search-box-div">
@@ -58,6 +60,11 @@
         <li>
           <a [routerLink]="['/movies']" [routerLinkActive]="['nav-active']"
             >Movies</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/users']" [routerLinkActive]="['nav-active']"
+            >User</a
           >
         </li>
       </ul>

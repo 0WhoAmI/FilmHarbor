@@ -53,7 +53,7 @@ export class EditMovieDialogComponent {
   }
 
   closeDialog() {
-    this.dialogRef.close();
+    this.dialogRef.close(this.data.movieData.categoryId);
   }
 
   public editMovieSubmitted() {

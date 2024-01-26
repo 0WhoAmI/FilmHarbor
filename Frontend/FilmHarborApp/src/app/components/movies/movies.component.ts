@@ -3,7 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../../models/category';
 import { Movie } from '../../models/movie';
 import { CategoriesService } from '../../services/categories.service';
+import { FavouriteMoviesService } from '../../services/favourite-movies.service';
 import { MoviesService } from '../../services/movies.service';
+import { UsersService } from '../../services/users.service';
 import { AddMovieDialogComponent } from './add-movie/add-movie-dialog.component';
 import { EditMovieDialogComponent } from './edit-movie/edit-movie-dialog.component';
 
@@ -19,7 +21,9 @@ export class MoviesComponent {
   constructor(
     private moviesService: MoviesService,
     private categoryService: CategoriesService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private favouriteMoviesService: FavouriteMoviesService,
+    private usersService: UsersService
   ) {}
 
   loadMovies() {
@@ -77,8 +81,10 @@ export class MoviesComponent {
     });
   }
 
-  public onFavouriteClicked() {
-    console.log(2);
+  public onFavouriteClicked(movieId: number) {
+    this.favouriteMoviesService
+      .addFavouriteMovies(this.usersService.currentLoggedUserId, movieId)
+      .subscribe(() => {});
   }
 
   public onEditClicked(movie: Movie) {

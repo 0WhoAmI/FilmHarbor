@@ -23,7 +23,7 @@ export class ApiService {
     });
   }
 
-  sendPost<T>(url: string, body: any): Observable<T> {
+  sendPost<T>(url: string, body?: any): Observable<T> {
     let headers = new HttpHeaders();
     headers = headers.append(
       'Authorization',

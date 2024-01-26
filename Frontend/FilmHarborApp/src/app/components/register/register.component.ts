@@ -54,6 +54,8 @@ export class RegisterComponent {
           console.log(response);
 
           this.isRegisterFormSubmitted = false;
+          this.usersService.currentLoggedUserName = response.personName;
+          this.usersService.currentLoggedUserId = response.id;
           localStorage['token'] = response.token;
 
           this.router.navigate(['/movies']);

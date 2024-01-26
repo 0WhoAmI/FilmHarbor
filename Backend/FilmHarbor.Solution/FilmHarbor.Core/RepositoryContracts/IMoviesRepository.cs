@@ -14,6 +14,13 @@ namespace FilmHarbor.Core.RepositoryContracts
         Task<List<Movie>> GetAllMovies();
 
         /// <summary>
+        /// Returns all movies by categoryId
+        /// </summary>
+        /// <param name="categoryId">CategoryId to search</param>
+        /// <returns>All movies from the table by categoryId</returns>
+        Task<List<Movie>> GetMoviesByCategoryId(int categoryId);
+
+        /// <summary>
         /// Returns a movie object based on the given movie id; otherwise, it returns null
         /// </summary>
         /// <param name="movieId">MovieId to search</param>

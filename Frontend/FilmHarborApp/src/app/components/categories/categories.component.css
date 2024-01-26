@@ -1,0 +1,11 @@
+mat-icon:hover {
+    cursor: pointer;
+    color: white;
+    background-color: gray /*#84978b*/;
+    border-radius: 20%;
+  }
+  
+  tr.hover-gray:hover {
+    cursor: pointer;
+    background-color: gray;
+  }

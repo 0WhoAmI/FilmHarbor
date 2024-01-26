@@ -64,5 +64,11 @@ namespace FilmHarbor.Infrastructure.Repositories
 
             return matchingMovie;
         }
+
+        public async Task<List<Movie>> GetMoviesByCategoryId(int categoryId)
+        {
+            return await _dbContext.Movies.Where(movie => movie.CategoryId == categoryId).ToListAsync();
+
+        }
     }
 }
