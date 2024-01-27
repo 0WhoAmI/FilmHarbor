@@ -32,6 +32,10 @@ export class CategoriesComponent {
     });
   }
   ngOnInit() {
+    this.usersService.currentLoggedUserId = localStorage['currentLoggedUserId'];
+    this.usersService.currentLoggedUserName =
+      localStorage['currentLoggedUserName'];
+      
     this.loadCategories();
   }
 

@@ -17,7 +17,7 @@ export class UsersComponent {
   constructor(
     private favouriteMoviesService: FavouriteMoviesService,
     private categoryService: CategoriesService,
-    private usersService: UsersService
+    public usersService: UsersService
   ) {}
 
   loadFavouriteMovies() {
@@ -43,6 +43,9 @@ export class UsersComponent {
     });
   }
   ngOnInit() {
+    this.usersService.currentLoggedUserId = localStorage['currentLoggedUserId'];
+    this.usersService.currentLoggedUserName = localStorage['currentLoggedUserName'];
+
     this.loadCategories();
     this.loadFavouriteMovies();
   }

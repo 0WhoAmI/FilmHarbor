@@ -11,6 +11,7 @@
         <div class="flex-1" id="search-box-div">
           <div class="navbar account-links">
             <ul
+              class="account-action"
               *ngIf="
                 usersService.currentLoggedUserName === '' ||
                 usersService.currentLoggedUserName === null ||
@@ -27,6 +28,7 @@
             </ul>
 
             <ul
+              class="account-action"
               *ngIf="
                 usersService.currentLoggedUserName !== '' &&
                 usersService.currentLoggedUserName !== null &&

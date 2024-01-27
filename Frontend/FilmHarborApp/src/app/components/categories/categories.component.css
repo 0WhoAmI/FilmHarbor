@@ -1,11 +1,19 @@
 mat-icon:hover {
-    cursor: pointer;
-    color: white;
-    background-color: gray /*#84978b*/;
-    border-radius: 20%;
-  }
-  
-  tr.hover-gray:hover {
-    cursor: pointer;
-    background-color: gray;
-  }
+  cursor: pointer;
+  color: white;
+  background-color: gray /*#84978b*/;
+  border-radius: 20%;
+}
+
+tr.hover-gray:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.left-div {
+  width: 30%;
+}
+
+.right-div {
+  width: 70%;
+}

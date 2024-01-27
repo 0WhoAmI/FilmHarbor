@@ -46,7 +46,12 @@ export class MoviesComponent {
       this.categories = response;
     });
   }
+
   ngOnInit() {
+    this.usersService.currentLoggedUserId = localStorage['currentLoggedUserId'];
+    this.usersService.currentLoggedUserName =
+      localStorage['currentLoggedUserName'];
+      
     this.loadCategories();
     this.loadMovies();
   }

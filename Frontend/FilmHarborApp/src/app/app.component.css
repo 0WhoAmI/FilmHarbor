@@ -1,3 +1,11 @@
-h2>a:hover{
+h2 > a:hover {
   cursor: pointer;
+}
+
+li > a {
+  float: left;
+}
+
+.account-action > li > a {
+  float: right;
 }

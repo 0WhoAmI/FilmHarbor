@@ -148,6 +148,7 @@ namespace FilmHarbor.WebAPI.Controllers
         }
 
         [HttpGet("logout")]
+        [AllowAnonymous]
         public async Task<ActionResult<User>> Logout()
         {
             await _signInManager.SignOutAsync();

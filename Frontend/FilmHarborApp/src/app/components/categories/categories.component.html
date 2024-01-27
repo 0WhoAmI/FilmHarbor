@@ -5,61 +5,64 @@
 </div>
 
 <div class="flex">
-  <div class="flex-1" style="width: 15%">
-    <div class="table-container" style="background-color: gainsboro">
-      <table class="table w-100">
-        <thead>
-          <tr>
-            <th>Category</th>
-          </tr>
-        </thead>
+  <div class="left-div">
+    <div class="flex-1">
+      <div class="table-container" style="background-color: gainsboro">
+        <table class="table w-100">
+          <thead>
+            <tr>
+              <th>Category</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr
-            class="hover-gray"
-            *ngFor="let category of categories"
-            (click)="onCategoryClicked(category)"
-          >
-            <td>{{ category.name }}</td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody>
+            <tr
+              class="hover-gray"
+              *ngFor="let category of categories"
+              (click)="onCategoryClicked(category)"
+            >
+              <td>{{ category.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+  <div class="right-div">
+    <div class="flex-2">
+      <h2>{{ selectedCategoryName }}</h2>
+      <div class="table-container">
+        <table class="table w-100">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Year</th>
+              <th></th>
+            </tr>
+          </thead>
 
-  <div class="flex-2" style="width: 85%">
-    <h2>{{ selectedCategoryName }}</h2>
-    <div class="table-container">
-      <table class="table w-100">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Year</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr
-            class="hover-gray"
-            *ngFor="let movie of movies"
-            (dblclick)="onEditClicked(movie)"
-          >
-            <td>{{ movie.id }}</td>
-            <td>{{ movie.title }}</td>
-            <td>{{ movie.category?.name }}</td>
-            <td>{{ movie.releaseYear }}</td>
-            <td class="text-right">
-              <mat-icon (click)="onDeleteClicked(movie.id)">delete</mat-icon>
-              <mat-icon (click)="onFavouriteClicked(movie.id)"
-                >favorite</mat-icon
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody>
+            <tr
+              class="hover-gray"
+              *ngFor="let movie of movies"
+              (dblclick)="onEditClicked(movie)"
+            >
+              <td>{{ movie.id }}</td>
+              <td>{{ movie.title }}</td>
+              <td>{{ movie.category?.name }}</td>
+              <td>{{ movie.releaseYear }}</td>
+              <td class="text-right">
+                <mat-icon (click)="onDeleteClicked(movie.id)">delete</mat-icon>
+                <mat-icon (click)="onFavouriteClicked(movie.id)"
+                  >favorite</mat-icon
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

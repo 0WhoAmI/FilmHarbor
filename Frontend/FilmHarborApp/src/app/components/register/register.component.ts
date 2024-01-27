@@ -57,6 +57,8 @@ export class RegisterComponent {
           this.usersService.currentLoggedUserName = response.personName;
           this.usersService.currentLoggedUserId = response.id;
           localStorage['token'] = response.token;
+          localStorage['currentLoggedUserName'] = response.personName;
+          localStorage['currentLoggedUserId'] = response.id;
 
           this.router.navigate(['/movies']);
 
