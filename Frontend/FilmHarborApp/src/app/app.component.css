@@ -9,3 +9,22 @@ li > a {
 .account-action > li > a {
   float: right;
 }
+
+/* Media Query dla urządzeń o szerokości mniejszej niż 600px */
+@media screen and (max-width: 600px) {
+  li > a {
+    font-size: large;
+  }
+
+  .account-action > li > a {
+    font-size: large;
+  }
+
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .account-action li a {
+    padding: 12px 20px;
+  }
+}
