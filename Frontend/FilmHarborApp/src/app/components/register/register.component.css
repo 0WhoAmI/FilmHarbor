@@ -1,0 +1,7 @@
+/* Media Query dla urządzeń o szerokości mniejszej niż 600px */
+@media screen and (max-width: 600px) {
+  button {
+    font-size: x-large;
+    width: 100%;
+  }
+}
