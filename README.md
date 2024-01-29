@@ -85,6 +85,6 @@ Contributions are welcome! If you have a suggestion to improve this project, ple
 Distributed under the GNU Affero General Public License (AGPL) version 3.0.
 
 ## Contact
-Your Name - @YourUsername - your.email@example.com
+Bartłomiej - @0WhoAmI
 
 Project Link: [https://github.com/0WhoAmI/FilmHarbor](https://github.com/0WhoAmI/FilmHarbor)
