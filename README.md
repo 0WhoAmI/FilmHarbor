@@ -16,7 +16,9 @@ FilmHarbor is a web application designed for movie enthusiasts who want to creat
 
 ## About The Project
 ![Ekran logowania](images/ekranLogowania.png)
+![Ekran logowania na telefonie](images/ekranLogowaniaPhone.png)
 ![Movies](images/movies.png)
+![Movies na telefonie](images/moviesPhone.png)
 ![Categories](images/categories.png)
 ![Users](images/users.png)
 
