@@ -36,7 +36,8 @@ builder.Services.AddDbContext<FilmHarborDbContext>(options =>
 {
     IConfigurationRoot configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.Local.json")
+        //.AddJsonFile("appsettings.Local.json") // Odkomentowaæ w przypadku lokalnego postawienia bazy (dotnet ef database update)
+        .AddJsonFile("appsettings.Docker.json")
         .Build();
 
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
@@ -132,7 +133,7 @@ app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local"))
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local") || app.Environment.IsEnvironment("Docker"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();

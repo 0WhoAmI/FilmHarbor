@@ -1,0 +1,32 @@
+services:
+  api:
+    build:
+      context: ./Backend/FilmHarbor.Solution
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:5000
+    depends_on:
+      - db
+
+  angular:
+    build:
+      context: ./Frontend/FilmHarborApp
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    stdin_open: true
+    tty: true
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "saSuperSilneHaslo123!"
+      ACCEPT_EULA: "Y"
+    # volumes:
+    #   - ./data/sql:/var/opt/mssql
